@@ -2,13 +2,11 @@
 
 namespace EdwinHoksberg\ElasticsearchQueryBuilder;
 
-use Elastic\Elasticsearch\Client;
-use Elastic\Elasticsearch\Response\Elasticsearch;
-use Http\Promise\Promise;
 use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Aggregation;
 use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\BoolQuery;
 use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\Query;
 use EdwinHoksberg\ElasticsearchQueryBuilder\Sorts\Sort;
+use Elasticsearch\Client as ElasticsearchClient;
 
 class Builder
 {
@@ -30,7 +28,7 @@ class Builder
 
     protected bool $withAggregations = true;
 
-    public function __construct(protected Client $client)
+    public function __construct(protected ElasticsearchClient $client)
     {
     }
 
@@ -67,7 +65,7 @@ class Builder
         return $this;
     }
 
-    public function search(): Elasticsearch|Promise
+    public function search(): array
     {
         $payload = $this->getPayload();
 
