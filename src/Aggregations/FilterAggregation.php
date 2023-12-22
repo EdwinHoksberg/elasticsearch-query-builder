@@ -32,9 +32,14 @@ class FilterAggregation extends Aggregation
 
     public function payload(): array
     {
-        return [
+        $data = [
             'filter' => $this->filter->toArray(),
-            'aggs' => $this->aggregations->toArray(),
         ];
+
+        if (!$this->aggregations->isEmpty()) {
+            $data['aggs'] = $this->aggregations->toArray();
+        }
+
+        return $data;
     }
 }
