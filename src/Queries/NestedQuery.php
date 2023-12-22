@@ -8,6 +8,11 @@ class NestedQuery implements Query
 
     protected Query $query;
 
+    protected ?string $scoreMode = null;
+
+    /** @var ?mixed[] */
+    protected ?array $innerHits = null;
+
     public static function create(string $path, Query $query): self
     {
         return new self($path, $query);
@@ -21,13 +26,38 @@ class NestedQuery implements Query
         $this->query = $query;
     }
 
+    public function setScoreMode(?string $scoreMode): self
+    {
+        $this->scoreMode = $scoreMode;
+
+        return $this;
+    }
+
+    /** @param mixed[] $innerHits */
+    public function setInnerHits(array $innerHits = []): self
+    {
+        $this->innerHits = array_merge(['highlight' => ['fields' => []], 'size' => 100], $innerHits);
+
+        return $this;
+    }
+
     public function toArray(): array
     {
-        return [
+        $data = [
             'nested' => [
                 'path' => $this->path,
                 'query' => $this->query->toArray(),
             ],
         ];
+
+        if ($this->scoreMode !== null) {
+            $data['nested']['score_mode'] = $this->scoreMode;
+        }
+
+        if ($this->innerHits !== null) {
+            $data['nested']['inner_hits'] = $this->innerHits;
+        }
+
+        return $data;
     }
 }
