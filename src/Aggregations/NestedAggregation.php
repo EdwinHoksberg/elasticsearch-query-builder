@@ -31,11 +31,16 @@ class NestedAggregation extends Aggregation
 
     public function payload(): array
     {
-        return [
+        $payload = [
             'nested' => [
                 'path' => $this->path,
             ],
-            'aggs' => $this->aggregations->toArray(),
         ];
+
+        if (!$this->aggregations->isEmpty()) {
+            $payload['aggs'] = $this->aggregations->toArray();
+        }
+
+        return $payload;
     }
 }
