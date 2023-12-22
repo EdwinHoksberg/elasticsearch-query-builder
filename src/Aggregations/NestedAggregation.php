@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 
-use Spatie\ElasticsearchQueryBuilder\AggregationCollection;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
+use EdwinHoksberg\ElasticsearchQueryBuilder\AggregationCollection;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
 
 class NestedAggregation extends Aggregation
 {

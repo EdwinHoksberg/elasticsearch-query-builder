@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns\WithMissing;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns\WithMissing;
 
 class MinAggregation extends Aggregation
 {

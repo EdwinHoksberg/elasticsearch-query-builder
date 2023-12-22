@@ -1,24 +1,28 @@
 {
-    "name": "spatie/elasticsearch-query-builder",
+    "name": "edwinhoksberg/elasticsearch-query-builder",
     "description": "Build and execute an Elasticsearch search query using a fluent PHP API",
     "keywords": [
-        "spatie",
         "elasticsearch-query-builder",
         "elasticsearch",
         "search"
     ],
-    "homepage": "https://github.com/spatie/elasticsearch-query-builder",
+    "homepage": "https://github.com/edwinhoksberg/elasticsearch-query-builder",
     "license": "MIT",
     "authors": [
         {
+            "name": "Edwin Hoksberg",
+            "email": "mail@edwinhoksberg.nl",
+            "role": "Current developer"
+        },
+        {
             "name": "Alex Vanderbist",
             "email": "alex.vanderbist@gmail.com",
-            "role": "Developer"
+            "role": "Past developer"
         },
         {
             "name": "Ruben Van Assche",
             "email": "ruben@spatie.be",
-            "role": "Developer"
+            "role": "Past developer"
         }
     ],
     "require": {
@@ -26,26 +30,21 @@
     },
     "require-dev": {
         "elasticsearch/elasticsearch": "^8.0",
-        "friendsofphp/php-cs-fixer": "^2.17",
-        "phpunit/phpunit": "^9.5",
-        "spatie/ray": "^1.10",
-        "vimeo/psalm": "^4.3"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\ElasticsearchQueryBuilder\\": "src"
+            "EdwinHoksberg\\ElasticsearchQueryBuilder\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\ElasticsearchQueryBuilder\\Tests\\": "tests"
+            "EdwinHoksberg\\ElasticsearchQueryBuilder\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
         "sort-packages": true

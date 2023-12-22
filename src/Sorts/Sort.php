@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Sorts;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Sorts;
 
 class Sort
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\QueryBuilder\Tests;
+namespace EdwinHoksberg\QueryBuilder\Tests;
 
 use PHPUnit\Framework\TestCase;
 

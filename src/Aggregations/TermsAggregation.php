@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 
-use Spatie\ElasticsearchQueryBuilder\AggregationCollection;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns\WithMissing;
+use EdwinHoksberg\ElasticsearchQueryBuilder\AggregationCollection;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns\WithMissing;
 
 class TermsAggregation extends Aggregation
 {

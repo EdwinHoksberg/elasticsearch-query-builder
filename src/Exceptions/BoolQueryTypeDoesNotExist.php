@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Exceptions;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Exceptions;
 
 use InvalidArgumentException;
 

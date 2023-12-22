@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 
 abstract class Aggregation
 {

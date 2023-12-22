@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns;
 
-use Spatie\ElasticsearchQueryBuilder\AggregationCollection;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Aggregation;
+use EdwinHoksberg\ElasticsearchQueryBuilder\AggregationCollection;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Aggregation;
 
 trait WithAggregations
 {

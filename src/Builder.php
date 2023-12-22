@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder;
 
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\Response\Elasticsearch;
 use Http\Promise\Promise;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Aggregation;
-use Spatie\ElasticsearchQueryBuilder\Queries\BoolQuery;
-use Spatie\ElasticsearchQueryBuilder\Queries\Query;
-use Spatie\ElasticsearchQueryBuilder\Sorts\Sort;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Aggregation;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\BoolQuery;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\Query;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Sorts\Sort;
 
 class Builder
 {

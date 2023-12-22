@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder;
 
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Aggregation;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Aggregation;
 
 class AggregationCollection
 {

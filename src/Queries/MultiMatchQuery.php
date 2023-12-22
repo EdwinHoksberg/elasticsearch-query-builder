@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Queries;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Queries;
 
 class MultiMatchQuery implements Query
 {

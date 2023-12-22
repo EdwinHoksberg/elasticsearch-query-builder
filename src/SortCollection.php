@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder;
 
-use Spatie\ElasticsearchQueryBuilder\Sorts\Sort;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Sorts\Sort;
 
 class SortCollection
 {

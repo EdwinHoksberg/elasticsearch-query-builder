@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\ElasticsearchQueryBuilder\Aggregations;
+namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 
-use Spatie\ElasticsearchQueryBuilder\AggregationCollection;
-use Spatie\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
-use Spatie\ElasticsearchQueryBuilder\Queries\Query;
+use EdwinHoksberg\ElasticsearchQueryBuilder\AggregationCollection;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations\Concerns\WithAggregations;
+use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\Query;
 
 class FilterAggregation extends Aggregation
 {
