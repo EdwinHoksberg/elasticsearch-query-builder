@@ -14,7 +14,7 @@ class MultiMatchQuery implements Query
     public static function create(
         string $query,
         array $fields,
-        int | string | null $fuzziness = null,
+        int|string|null $fuzziness = null,
         ?string $type = null
     ): static {
         return new self($query, $fields, $fuzziness, $type);
@@ -23,7 +23,7 @@ class MultiMatchQuery implements Query
     public function __construct(
         protected string $query,
         protected array $fields,
-        protected int | string | null $fuzziness = null,
+        protected int|string|null $fuzziness = null,
         protected ?string $type = null
     ) {
     }

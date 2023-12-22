@@ -12,13 +12,10 @@ class TermsAggregation extends Aggregation
     use WithAggregations;
 
     protected string $field;
-
     protected ?int $size = null;
-
     protected ?array $order = null;
-
-    private int|null $minDocCount = null;
-    private int|null $shardSize = null;
+    private ?int $minDocCount = null;
+    private ?int $shardSize = null;
 
     public static function create(string $name, string $field): self
     {
@@ -90,7 +87,7 @@ class TermsAggregation extends Aggregation
             $aggregation['terms']['shard_size'] = $this->shardSize;
         }
 
-        if (! $this->aggregations->isEmpty()) {
+        if (!$this->aggregations->isEmpty()) {
             $aggregation['aggs'] = $this->aggregations->toArray();
         }
 

@@ -8,11 +8,8 @@ class Sort
     public const DESC = 'desc';
 
     protected string $field;
-
     protected string $order;
-
     protected ?string $missing = null;
-
     protected ?string $unmappedType = null;
 
     public static function create(string $field, string $order = 'desc'): static

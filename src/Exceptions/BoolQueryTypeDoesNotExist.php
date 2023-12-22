@@ -6,8 +6,8 @@ use InvalidArgumentException;
 
 class BoolQueryTypeDoesNotExist extends InvalidArgumentException
 {
-    public function __construct(string $type)
+    public static function forInvalidType(string $type): static
     {
-        parent::__construct("Type `$type` for bool query does not exist. Please use one of the following: must, must_not, filter, should");
+        throw new self("Type '$type' for bool query does not exist. Please use one of the following: must, must_not, filter, should");
     }
 }

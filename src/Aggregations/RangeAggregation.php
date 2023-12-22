@@ -16,26 +16,20 @@ final class RangeAggregation extends Aggregation
     /** @var array<string, string> */
     protected array $ranges;
 
-    public function __construct(
-        string $name,
-        string $field,
-        Aggregation ...$aggregations
-    ) {
+    public static function create(string $name, string $field, Aggregation ...$aggregations): self
+    {
+        return new self($name, $field, ...$aggregations);
+    }
+
+    public function __construct(string $name, string $field, Aggregation ...$aggregations)
+    {
         $this->name = $name;
         $this->field = $field;
         $this->aggregations = new AggregationCollection(...$aggregations);
     }
 
-    public static function create(
-        string $name,
-        string $field,
-        Aggregation ...$aggregations
-    ): self {
-        return new self($name, $field, ...$aggregations);
-    }
-
     /** @param array<string, string> $ranges */
-    public function setRanges(array $ranges): self
+    public function ranges(array $ranges): self
     {
         $this->ranges = $ranges;
 

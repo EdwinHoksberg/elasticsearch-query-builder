@@ -5,9 +5,7 @@ namespace EdwinHoksberg\ElasticsearchQueryBuilder\Queries;
 class NestedQuery implements Query
 {
     protected string $path;
-
     protected Query $query;
-
     protected ?string $scoreMode = null;
 
     /** @var ?mixed[] */
@@ -18,15 +16,13 @@ class NestedQuery implements Query
         return new self($path, $query);
     }
 
-    public function __construct(
-        string $path,
-        Query $query
-    ) {
+    public function __construct(string $path, Query $query)
+    {
         $this->path = $path;
         $this->query = $query;
     }
 
-    public function setScoreMode(?string $scoreMode): self
+    public function scoreMode(?string $scoreMode): self
     {
         $this->scoreMode = $scoreMode;
 
@@ -34,7 +30,7 @@ class NestedQuery implements Query
     }
 
     /** @param mixed[] $innerHits */
-    public function setInnerHits(array $innerHits = []): self
+    public function innerHits(array $innerHits = []): self
     {
         $this->innerHits = array_merge(['highlight' => ['fields' => []], 'size' => 100], $innerHits);
 

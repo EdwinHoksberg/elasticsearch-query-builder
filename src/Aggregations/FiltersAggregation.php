@@ -9,11 +9,8 @@ use EdwinHoksberg\ElasticsearchQueryBuilder\Queries\Query;
 
 final class FiltersAggregation extends BaseFilterAggregation
 {
-    public static function create(
-        string $name,
-        Query $filter,
-        Aggregation ...$aggregations
-    ): self {
+    public static function create(string $name, Query $filter, Aggregation ...$aggregations): self
+    {
         return new self($name, $filter, ...$aggregations);
     }
 

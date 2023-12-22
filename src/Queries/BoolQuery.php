@@ -19,8 +19,8 @@ class BoolQuery implements Query
 
     public function add(Query $query, string $type = 'must'): static
     {
-        if (! in_array($type, ['must', 'filter', 'should', 'must_not'])) {
-            throw new BoolQueryTypeDoesNotExist($type);
+        if (!in_array($type, ['must', 'filter', 'should', 'must_not'])) {
+            throw BoolQueryTypeDoesNotExist::forInvalidType($type);
         }
 
         $this->$type[] = $query;
@@ -28,7 +28,7 @@ class BoolQuery implements Query
         return $this;
     }
 
-    public function setMinimumShouldMatch(?int $minimumShouldMatch): self
+    public function minimumShouldMatch(?int $minimumShouldMatch): self
     {
         $this->minimumShouldMatch = $minimumShouldMatch;
 
@@ -38,10 +38,10 @@ class BoolQuery implements Query
     public function toArray(): array
     {
         $bool = [
-            'must' => array_map(fn (Query $query) => $query->toArray(), $this->must),
-            'filter' => array_map(fn (Query $query) => $query->toArray(), $this->filter),
-            'should' => array_map(fn (Query $query) => $query->toArray(), $this->should),
-            'must_not' => array_map(fn (Query $query) => $query->toArray(), $this->must_not),
+            'must' => array_map(static fn (Query $query) => $query->toArray(), $this->must),
+            'filter' => array_map(static fn (Query $query) => $query->toArray(), $this->filter),
+            'should' => array_map(static fn (Query $query) => $query->toArray(), $this->should),
+            'must_not' => array_map(static fn (Query $query) => $query->toArray(), $this->must_not),
         ];
 
         if ($this->minimumShouldMatch) {

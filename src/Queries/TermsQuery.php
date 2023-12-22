@@ -5,7 +5,6 @@ namespace EdwinHoksberg\ElasticsearchQueryBuilder\Queries;
 class TermsQuery implements Query
 {
     protected string $field;
-
     protected array $value;
 
     public static function create(string $field, array $value): static

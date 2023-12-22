@@ -16,19 +16,15 @@ final class CompositeAggregation extends Aggregation
     /** @var mixed[] */
     protected array $sources = [];
 
-    public function __construct(
-        string $name,
-        Aggregation ...$aggregations
-    ) {
-        $this->name = $name;
-        $this->aggregations = new AggregationCollection(...$aggregations);
+    public static function create(string $name, Aggregation ...$aggregations): self
+    {
+        return new self($name, ...$aggregations);
     }
 
-    public static function create(
-        string $name,
-        Aggregation ...$aggregations
-    ): self {
-        return new self($name, ...$aggregations);
+    public function __construct(string $name, Aggregation ...$aggregations)
+    {
+        $this->name = $name;
+        $this->aggregations = new AggregationCollection(...$aggregations);
     }
 
     public function size(int $size): self
@@ -39,7 +35,7 @@ final class CompositeAggregation extends Aggregation
     }
 
     /** @param mixed[] $sources */
-    public function setSources(array $sources): self
+    public function sources(array $sources): self
     {
         $this->sources = $sources;
 

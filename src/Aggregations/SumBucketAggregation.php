@@ -13,22 +13,16 @@ final class SumBucketAggregation extends Aggregation
 
     protected string $bucketsPath;
 
-    public function __construct(
-        string $name,
-        string $bucketsPath,
-        Aggregation ...$aggregations
-    ) {
+    public static function create(string $name, string $bucketsPath, Aggregation ...$aggregations): self
+    {
+        return new self($name, $bucketsPath, ...$aggregations);
+    }
+
+    public function __construct(string $name, string $bucketsPath, Aggregation ...$aggregations)
+    {
         $this->name = $name;
         $this->bucketsPath = $bucketsPath;
         $this->aggregations = new AggregationCollection(...$aggregations);
-    }
-
-    public static function create(
-        string $name,
-        string $bucketsPath,
-        Aggregation ...$aggregations
-    ): self {
-        return new self($name, $bucketsPath, ...$aggregations);
     }
 
     /** @return array<string, array<string, string>> */

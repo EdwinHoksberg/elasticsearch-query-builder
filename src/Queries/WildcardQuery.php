@@ -9,10 +9,8 @@ class WildcardQuery implements Query
         return new self($field, $value);
     }
 
-    public function __construct(
-        protected string $field,
-        protected string $value
-    ) {
+    public function __construct(protected string $field, protected string $value)
+    {
     }
 
     public function toArray(): array

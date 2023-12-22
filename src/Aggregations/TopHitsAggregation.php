@@ -7,7 +7,6 @@ use EdwinHoksberg\ElasticsearchQueryBuilder\Sorts\Sort;
 class TopHitsAggregation extends Aggregation
 {
     protected int $size;
-
     protected ?Sort $sort = null;
 
     /** @var array<string, string|string[]> */
@@ -18,18 +17,15 @@ class TopHitsAggregation extends Aggregation
         return new self($name, $size, $sort);
     }
 
-    public function __construct(
-        string $name,
-        int $size,
-        ?Sort $sort = null
-    ) {
+    public function __construct(string $name, int $size, ?Sort $sort = null)
+    {
         $this->name = $name;
         $this->size = $size;
         $this->sort = $sort;
     }
 
     /** @param mixed[] $source */
-    public function setSource(array $source): self
+    public function source(array $source): self
     {
         $this->source = $source;
 

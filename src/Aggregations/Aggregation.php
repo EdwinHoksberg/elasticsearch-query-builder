@@ -5,7 +5,6 @@ namespace EdwinHoksberg\ElasticsearchQueryBuilder\Aggregations;
 abstract class Aggregation
 {
     protected string $name;
-
     protected array $meta = [];
 
     public function getName(): string

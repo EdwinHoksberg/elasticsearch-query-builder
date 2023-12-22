@@ -11,21 +11,13 @@ use Elasticsearch\Client as ElasticsearchClient;
 class Builder
 {
     protected ?BoolQuery $query = null;
-
     protected ?AggregationCollection $aggregations = null;
-
     protected ?SortCollection $sorts = null;
-
     protected ?string $searchIndex = null;
-
     protected ?int $size = null;
-
     protected ?int $from = null;
-
     protected ?array $searchAfter = null;
-
     protected ?array $fields = null;
-
     protected bool $withAggregations = true;
 
     public function __construct(protected ElasticsearchClient $client)
@@ -34,7 +26,7 @@ class Builder
 
     public function addQuery(Query $query, string $boolType = 'must'): static
     {
-        if (! $this->query) {
+        if (!$this->query) {
             $this->query = new BoolQuery();
         }
 
@@ -45,7 +37,7 @@ class Builder
 
     public function addAggregation(Aggregation $aggregation): static
     {
-        if (! $this->aggregations) {
+        if (!$this->aggregations) {
             $this->aggregations = new AggregationCollection();
         }
 
@@ -56,7 +48,7 @@ class Builder
 
     public function addSort(Sort $sort): static
     {
-        if (! $this->sorts) {
+        if (!$this->sorts) {
             $this->sorts = new SortCollection();
         }
 

@@ -17,6 +17,16 @@ final class BucketScriptAggregation extends Aggregation
     protected string $script;
 
     /** @param array<string, string> $bucketsPath */
+    public static function create(
+        string $name,
+        array $bucketsPath,
+        string $script,
+        Aggregation ...$aggregations,
+    ): self {
+        return new self($name, $bucketsPath, $script, ...$aggregations);
+    }
+
+    /** @param array<string, string> $bucketsPath */
     public function __construct(
         string $name,
         array $bucketsPath,
@@ -27,16 +37,6 @@ final class BucketScriptAggregation extends Aggregation
         $this->bucketsPath = $bucketsPath;
         $this->script = $script;
         $this->aggregations = new AggregationCollection(...$aggregations);
-    }
-
-    /** @param array<string, string> $bucketsPath */
-    public static function create(
-        string $name,
-        array $bucketsPath,
-        string $script,
-        Aggregation ...$aggregations,
-    ): self {
-        return new self($name, $bucketsPath, $script, ...$aggregations);
     }
 
     /** @return array<string, array<string, array<string, string>|string>> */

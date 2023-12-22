@@ -14,16 +14,16 @@ final class MatchAllQuery implements Query
     private array $values;
 
     /** @param mixed[] $values */
+    public static function create(string $field, array $values = []): static
+    {
+        return new self($field, $values);
+    }
+
+    /** @param mixed[] $values */
     public function __construct(string $field, array $values)
     {
         $this->field = $field;
         $this->values = $values;
-    }
-
-    /** @param mixed[] $values */
-    public static function create(string $field, array $values = []): static
-    {
-        return new self($field, $values);
     }
 
     /** @return array<string, array<string, mixed[]>> */

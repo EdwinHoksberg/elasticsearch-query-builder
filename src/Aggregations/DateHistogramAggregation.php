@@ -16,7 +16,7 @@ final class DateHistogramAggregation extends Aggregation
     protected int|string $interval = '';
     protected int|string $fixedInterval = '';
     protected string $format = '';
-    protected int|null $minDocCount = null;
+    protected ?int $minDocCount = null;
 
     /** @var array<string, int> */
     protected ?array $extendedBounds = null;
@@ -26,19 +26,15 @@ final class DateHistogramAggregation extends Aggregation
     /** @var mixed[]|null */
     protected ?array $order = null;
 
-    public function __construct(
-        string $name,
-        Aggregation ...$aggregations
-    ) {
-        $this->name = $name;
-        $this->aggregations = new AggregationCollection(...$aggregations);
+    public static function create(string $name, Aggregation ...$aggregations): self
+    {
+        return new self($name, ...$aggregations);
     }
 
-    public static function create(
-        string $name,
-        Aggregation ...$aggregations
-    ): self {
-        return new self($name, ...$aggregations);
+    public function __construct(string $name, Aggregation ...$aggregations)
+    {
+        $this->name = $name;
+        $this->aggregations = new AggregationCollection(...$aggregations);
     }
 
     public function field(string $field): self
