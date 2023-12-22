@@ -17,6 +17,9 @@ class TermsAggregation extends Aggregation
 
     protected ?array $order = null;
 
+    private int|null $minDocCount = null;
+    private int|null $shardSize = null;
+
     public static function create(string $name, string $field): self
     {
         return new self($name, $field);
@@ -43,6 +46,20 @@ class TermsAggregation extends Aggregation
         return $this;
     }
 
+    public function minDocCount(int $minDocCount): self
+    {
+        $this->minDocCount = $minDocCount;
+
+        return $this;
+    }
+
+    public function shardSize(int $shardSize): self
+    {
+        $this->shardSize = $shardSize;
+
+        return $this;
+    }
+
     public function payload(): array
     {
         $parameters = [
@@ -64,6 +81,14 @@ class TermsAggregation extends Aggregation
         $aggregation = [
             'terms' => $parameters,
         ];
+
+        if ($this->minDocCount !== null) {
+            $aggregation['terms']['min_doc_count'] = $this->minDocCount;
+        }
+
+        if ($this->shardSize !== null) {
+            $aggregation['terms']['shard_size'] = $this->shardSize;
+        }
 
         if (! $this->aggregations->isEmpty()) {
             $aggregation['aggs'] = $this->aggregations->toArray();
