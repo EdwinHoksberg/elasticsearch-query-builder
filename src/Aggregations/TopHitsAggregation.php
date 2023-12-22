@@ -10,6 +10,9 @@ class TopHitsAggregation extends Aggregation
 
     protected ?Sort $sort = null;
 
+    /** @var array<string, string|string[]> */
+    private array $source = [];
+
     public static function create(string $name, int $size, ?Sort $sort = null): static
     {
         return new self($name, $size, $sort);
@@ -25,10 +28,19 @@ class TopHitsAggregation extends Aggregation
         $this->sort = $sort;
     }
 
+    /** @param mixed[] $source */
+    public function setSource(array $source): self
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
     public function payload(): array
     {
         $parameters = [
             'size' => $this->size,
+            '_source' => $this->source,
         ];
 
         if ($this->sort) {
